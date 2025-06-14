@@ -1,4 +1,5 @@
 export default defineNuxtConfig({
+  css: ['@/assets/css/main.css'],
   compatibilityDate: '2025-05-15',
   devtools: { enabled: true },
   // note can open it when vue tool in browser not work
@@ -10,7 +11,8 @@ export default defineNuxtConfig({
     'nuxt-headlessui',
     '@nuxt/icon',
     'nuxt-swiper',
-    '@pinia/nuxt'
+    '@pinia/nuxt',
+    'nuxt-lucide-icons'
   ],
   // Optionally change the default prefix.
   headlessui: {
