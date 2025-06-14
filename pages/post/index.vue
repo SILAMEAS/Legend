@@ -1,3 +1,11 @@
+<script setup lang="ts">
+import {usePostStore} from "@/stores/service/post";
+
+const postStore = usePostStore()
+
+onMounted(() => postStore.fetchPosts())
+</script>
+
 <template>
   <div>
     <h1>Posts</h1>
@@ -12,14 +20,3 @@
     </ul>
   </div>
 </template>
-
-<script setup lang="ts">
-import { onMounted } from 'vue'
-import {usePostStore} from "~/stores/post";
-
-const postStore = usePostStore()
-
-onMounted(() => {
-  postStore.fetchPosts()
-})
-</script>
