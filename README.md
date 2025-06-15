@@ -114,5 +114,53 @@ bun run preview
     })
     </script>
 
+### state management ingine
+
+    const todo = useState("todo",()=>data);  // set
+
+    const todo = useState("todo"); // calling to use other page
+
+
+### Switper JS
+
+    <!-- Swiper -->
+    <ClientOnly>
+      <swiper-container ref="containerRef">
+        <swiper-slide
+            v-for="(slide, idx) in slides"
+            :key="idx"
+            style="background-color: rgb(32, 233, 70); color: white;"
+        >
+          Slide {{ idx + 1 }}
+        </swiper-slide>
+      </swiper-container>
+    </ClientOnly>
+
+    <button @click="swiper.prev()">Prev</button>
+    <button @click="swiper.next()">Next</button>
+
+
+    swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20vh;
+    font-size: 4rem;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+    }
+
+### Pinia
+
+    <script setup lang="ts">
+    const counter = useCounterStore()
+    </script>
+
+    <div class="p-4">
+    <h1 class="text-2xl font-bold">Counter: {{ counter.count }}</h1>
+    <button @click="counter.increment" class="bg-blue-500 text-white px-4 py-2 rounded">Increment</button>
+    <button @click="counter.decrement" class="bg-blue-500 text-white px-4 py-2 rounded ml-2">Decrement</button>
+    </div>
+
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
