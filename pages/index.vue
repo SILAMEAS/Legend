@@ -7,6 +7,10 @@ const slides = ref(Array.from({ length: 10 }))
 
 const swiper = useSwiper(containerRef)
 
+const {data:dataHello} = useFetch<Record<string, any>>("/api/hello");
+
+console.log("hello",dataHello)
+
 // Fetch todo item
 const { data, pending, error } = await useAsyncData<{ id: number; title: string; completed: boolean }>(
     'todo-1',
@@ -45,6 +49,7 @@ onMounted(() => {
     <p v-else-if="error">Error: {{ error.message }}</p>
     <p v-else-if="data">{{ JSON.stringify(data, null, 2) }}</p>
     <p v-else>No data available</p>
+    <p> JK : {{JSON.stringify(dataHello?.user)}}</p>
   </div>
 </template>
 
