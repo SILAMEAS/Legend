@@ -1,5 +1,6 @@
 <template>
   <div class="container mx-auto">
+    <HeaderNavbar/>
     <Navbar/>
     <slot/>
     <p>footer</p>
@@ -8,4 +9,5 @@
 
 
 <script setup lang="ts">
+import HeaderNavbar from "~/components/headerNavbar.vue";
 </script>

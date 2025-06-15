@@ -1,8 +1,14 @@
-function isAuthenticated(): boolean { return false }
+
 // ---cut---
 export default defineNuxtRouteMiddleware((to, from) => {
-    // isAuthenticated() is an example method verifying if a user is authenticated
-    if (isAuthenticated() === false) {
-        return navigateTo('/login')
+    function isAuthenticated(): boolean {
+        return false // simulate unauthenticated
+    }
+
+    const protectedRoutes = ['/posts']
+
+    if (protectedRoutes.includes(to.path) && !isAuthenticated()) {
+        // This will stop Nuxt from continuing the navigation
+        return abortNavigation()
     }
 })

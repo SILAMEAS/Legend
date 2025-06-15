@@ -15,9 +15,6 @@ export default defineNuxtConfig({
     'nuxt-lucide-icons'
   ],
   // Optionally change the default prefix.
-  headlessui: {
-    prefix: 'Headless'
-  },
   runtimeConfig: {
     public: {
       API_BASE_URL: process.env.NUXT_PUBLIC_API_BASE_URL ?? 'http://localhost:3000',
@@ -26,4 +23,10 @@ export default defineNuxtConfig({
   app: {
     pageTransition: { name: 'page', mode: 'out-in' }
   },
+  headlessui:{
+    prefix:"HeadlessUi"
+  },
+  lucide:{
+    namePrefix:"Lucide"
+  }
 })
