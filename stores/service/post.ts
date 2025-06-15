@@ -1,4 +1,4 @@
-import {defineStore} from 'pinia'
+import { defineStore } from 'pinia'
 
 interface Post {
     id: number
@@ -14,7 +14,7 @@ export const usePostStore = defineStore('posts', {
 
     actions: {
         savePost(data: Post[]) {
-            this.posts = data;
+            this.posts = data // <-- use 'this' here
         },
     },
 })
