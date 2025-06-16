@@ -11,7 +11,7 @@
     </div>
 
     <div class="flex items-center">
-      <LucideAirVent/>
+      <img src="https://www.legend.com.kh/_ipx/s_117x44/legend-cinema-logo.png" alt="logo"/>
       <LucideTicket/>
       <LucideGroup/>
       <LucideAlertCircle/>

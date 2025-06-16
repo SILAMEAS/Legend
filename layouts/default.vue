@@ -1,7 +1,9 @@
 <template>
   <div class="container mx-auto">
-    <HeaderNavbar/>
-    <Navbar/>
+    <div class="bg-black ">
+      <HeaderNavbar/>
+      <Navbar/>
+    </div>
     <slot/>
     <p>footer</p>
   </div>

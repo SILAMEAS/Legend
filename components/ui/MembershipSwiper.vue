@@ -28,15 +28,15 @@ onMounted(() => {
     activeIndex.value = containerRef.value.swiper.realIndex
   }
 })
-console.log("activeIndex",activeIndex)
 </script>
 
 
 <template>
   <div
-      class="w-full min-h-screen flex items-center justify-center bg-cover bg-center transition-all duration-500 "
-      :style="{ backgroundImage: `url('${images[activeIndex].url}')` }"
+      class="w-full h-[500px] flex items-center justify-center"
   >
+    <!-- Overlay with blur -->
+    <UiOverlayBlur/>
     <div class="w-full max-w-4xl mx-auto px-4">
       <ClientOnly>
         <swiper-container
@@ -53,7 +53,7 @@ console.log("activeIndex",activeIndex)
           <swiper-slide v-for="(image, index) in images" :key="index">
             <div class="flex justify-center items-center h-full">
               <div
-                  class="w-full min-h-screen flex items-center justify-center bg-cover bg-center transition-all duration-500 "
+                  class="w-full h-[100%] flex items-center justify-center bg-cover bg-center transition-all duration-500 "
                   :style="{ backgroundImage: `url('${images[activeIndex].url}')` }"
               />
               <img

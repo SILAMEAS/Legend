@@ -21,9 +21,11 @@ onMounted(() => {
 </script>
 
 <template>
-  <div>
+  <div class="flex flex-col">
     <!--   Swiper    -->
-    <UiMembershipSwiper/>
+    <div class="relative h-[700px]">
+      <UiMembershipSwiper/>
+    </div>
     <!-- Content -->
     <p v-if="pending">Loading...</p>
     <p v-else-if="error">Error: {{ error.message }}</p>
