@@ -1,5 +1,8 @@
+import tailwindcss from '@tailwindcss/vite'
+
+
 export default defineNuxtConfig({
-  css: ['@/assets/css/main.css'],
+  css: ['~/assets/css/tailwind.css'],
   compatibilityDate: '2025-05-15',
   devtools: { enabled: true },
   modules: [
@@ -8,7 +11,8 @@ export default defineNuxtConfig({
     '@nuxt/icon',
     'nuxt-swiper',
     '@pinia/nuxt',
-    'nuxt-lucide-icons'
+    'nuxt-lucide-icons',
+    'shadcn-nuxt'
   ],
   runtimeConfig: {
     public: {
@@ -23,5 +27,21 @@ export default defineNuxtConfig({
   },
   lucide:{
     namePrefix:"Lucide"
-  }
+  },
+  shadcn: {
+    /**
+     * Prefix for all the imported component
+     */
+    prefix: 'CN',
+    /**
+     * Directory that the component lives in.
+     * @default "./components/ui"
+     */
+    componentDir: './components/ui'
+  },
+  vite: {
+    plugins: [
+      tailwindcss(),
+    ],
+  },
 })
