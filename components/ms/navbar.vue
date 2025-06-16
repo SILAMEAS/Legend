@@ -29,7 +29,7 @@
    </div>
    <div class="flex items-center gap-2">
      <LucideLocate class="svg"/>
-     <UiSelectedAllCinema/>
+     <p>select</p>
    </div>
  </div>
 </template>
