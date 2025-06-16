@@ -19,16 +19,34 @@ export default defineNuxtConfig({
     }
   },
   app: {
-    pageTransition: { name: 'page', mode: 'out-in' }
+    pageTransition: { name: 'page', mode: 'out-in' },
+    head: {
+      script: [
+        {
+          children: `
+            (() => {
+              try {
+                const theme = localStorage.getItem('theme');
+                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                if (theme === 'dark' || (!theme && prefersDark)) {
+                  document.documentElement.classList.add('dark');
+                }
+              } catch (e) {}
+            })();
+          `,
+          tagPosition: 'head',
+        }
+      ]
+    }
   },
   lucide:{
-    namePrefix:"Lucide"
+    namePrefix:""
   },
   shadcn: {
     /**
      * Prefix for all the imported component
      */
-    prefix: 'CN',
+    prefix: '',
     /**
      * Directory that the component lives in.
      * @default "./components/ui"

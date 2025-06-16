@@ -121,3 +121,24 @@
     @apply bg-background text-foreground;
   }
 }
+
+
+.link{
+  color: white;
+  display: flex;
+  font-size: 0.7rem;
+  align-items: center;
+}
+.link svg{
+  margin-right: 3px;
+}
+svg{
+  width: 1rem !important;
+  height: 1rem !important;
+}
+.active-link {
+  color: white;
+}
+.active-link svg {
+  color: red; /* or fill/stroke depending on the icon */
+}

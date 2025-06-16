@@ -1,31 +1,31 @@
 <script setup lang="ts">
-import { useAsyncData } from 'nuxt/app';
-// Fetch Todo item
-const { data, pending, error } = await useAsyncData<{ id: number; title: string; completed: boolean }>(
-    'todo-1',
-    () => $fetch('https://jsonplaceholder.typicode.com/todos/1'),
-    {
-      immediate: true,
-    }
-)
+import { useTheme } from '~/composables/useTheme'
 
-onMounted(() => {
-  console.log('Todo data:', data.value)
+const { theme, setTheme } = useTheme()
+
+const hi = () => {
+  alert('hi')
+}
+
+const isDark = computed({
+  get: () => theme.value === 'dark',
+  set: (val) => setTheme(val ? 'dark' : 'light'),
 })
 </script>
 
 <template>
   <div class="flex flex-col">
-    <!--   Swiper    -->
+    <!-- Swiper -->
     <div class="relative h-[700px]">
-      <MsMembershipSwiper/>
+      <MsMembershipSwiper />
     </div>
+
     <!-- Content -->
-    <p v-if="pending">Loading...</p>
-    <p v-else-if="error">Error: {{ error.message }}</p>
-    <p v-else-if="data">{{ JSON.stringify(data, null, 2) }}</p>
-    <p v-else>No data available</p>
-    <CNButton>Test</CNButton>
+    <Button>Test</Button>
+    <div class="flex items-center gap-2">
+      <Button @click="hi">HI</Button>
+      <Switch v-model:checked="isDark" />
+      <span>{{ theme }}</span>
+    </div>
   </div>
 </template>
-
