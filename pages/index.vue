@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useAsyncData } from 'nuxt/app'
+import { useAsyncData } from 'nuxt/app';
 // Fetch Todo item
 const { data, pending, error } = await useAsyncData<{ id: number; title: string; completed: boolean }>(
     'todo-1',
@@ -25,6 +25,8 @@ onMounted(() => {
     <p v-else-if="error">Error: {{ error.message }}</p>
     <p v-else-if="data">{{ JSON.stringify(data, null, 2) }}</p>
     <p v-else>No data available</p>
+
+    <MsSwitchIcon/>
   </div>
 </template>
 

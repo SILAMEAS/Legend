@@ -19,7 +19,7 @@ export default defineNuxtConfig({
     pageTransition: { name: 'page', mode: 'out-in' }
   },
   headlessui:{
-    prefix:"HeadlessUi"
+    prefix:"HUI"
   },
   lucide:{
     namePrefix:"Lucide"
