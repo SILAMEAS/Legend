@@ -12,7 +12,6 @@
           class="pointer-events-none inline-block h-[34px] w-[34px] transform rounded-full bg-white shadow-lg ring-0 transition duration-200 ease-in-out"
       />
     </HUISwitch>
-    <Button>sdf</Button>
   </div>
 </template>
 

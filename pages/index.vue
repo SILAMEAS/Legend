@@ -27,6 +27,7 @@ onMounted(() => {
     <p v-else>No data available</p>
 
     <MsSwitchIcon/>
+    <CNButton>Dsf</CNButton>
   </div>
 </template>
 
