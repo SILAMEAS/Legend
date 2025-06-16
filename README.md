@@ -163,4 +163,9 @@ bun run preview
     </div>
 
 
+### Command Run in Shadcn
+
+    npx shadcn-vue@latest add button
+
+
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.

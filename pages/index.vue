@@ -25,9 +25,7 @@ onMounted(() => {
     <p v-else-if="error">Error: {{ error.message }}</p>
     <p v-else-if="data">{{ JSON.stringify(data, null, 2) }}</p>
     <p v-else>No data available</p>
-
-    <MsSwitchIcon/>
-    <CNButton>Dsf</CNButton>
+    <CNButton>Test</CNButton>
   </div>
 </template>
 

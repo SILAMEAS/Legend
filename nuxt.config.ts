@@ -7,7 +7,6 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: [
     '@nuxtjs/tailwindcss',
-    'nuxt-headlessui',
     '@nuxt/icon',
     'nuxt-swiper',
     '@pinia/nuxt',
@@ -21,9 +20,6 @@ export default defineNuxtConfig({
   },
   app: {
     pageTransition: { name: 'page', mode: 'out-in' }
-  },
-  headlessui:{
-    prefix:"HUI"
   },
   lucide:{
     namePrefix:"Lucide"

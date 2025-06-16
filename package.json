@@ -31,7 +31,6 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.4.21",
-    "nuxt-headlessui": "^1.2.0",
     "postcss": "^8.5.5",
     "shadcn-nuxt": "^2.2.0",
     "tailwindcss": "^4.1.10"
