@@ -26,10 +26,9 @@
      </NuxtLink>
 
    </div>
-   <div class="flex items-center gap-2">
-     <Locate class="svg"/>
-     <p>select</p>
-   </div>
+<!--   <div class="flex items-center gap-2">-->
+<!--     <MsSelectCinema/>-->
+<!--   </div>-->
  </div>
 </template>
 
