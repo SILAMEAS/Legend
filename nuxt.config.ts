@@ -11,7 +11,8 @@ export default defineNuxtConfig({
     'nuxt-swiper',
     '@pinia/nuxt',
     'nuxt-lucide-icons',
-    'shadcn-nuxt'
+    'shadcn-nuxt',
+    '@nuxtjs/color-mode'
   ],
   runtimeConfig: {
     public: {
@@ -34,6 +35,15 @@ export default defineNuxtConfig({
      * @default "./components/ui"
      */
     componentDir: './components/ui'
+  },
+  tailwindcss: {
+    cssPath: '~/assets/css/tailwind.css',
+    configPath: 'tailwind.config.ts'
+  },
+  colorMode: {
+    preference: 'dark', // Default to dark mode
+    classSuffix: '',
+    storageKey: 'theme'
   },
   vite: {
     plugins: [

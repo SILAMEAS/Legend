@@ -141,3 +141,8 @@ svg{
 .active-link svg {
   color: red; /* or fill/stroke depending on the icon */
 }
+
+html {
+  background-color: hsl(222.2 47.4% 11.2%); /* Dark mode background */
+  color: hsl(0 0% 100%); /* Dark mode foreground */
+}

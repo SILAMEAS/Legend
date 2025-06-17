@@ -1,7 +1,7 @@
 import type { Config } from 'tailwindcss'
 
 export default <Config>{
-    darkMode: 'class', // Enables dark mode by toggling the 'dark' class on <html>
+    darkMode: 'class',
     content: [
         './components/**/*.{vue,js,ts}',
         './layouts/**/*.vue',
@@ -14,8 +14,7 @@ export default <Config>{
             colors: {
                 background: 'hsl(var(--background))',
                 foreground: 'hsl(var(--foreground))',
-                border: 'hsl(var(--border))',
-                // Add more shadcn-vue variables as needed
+                border: 'hsl(var(--border))'
             }
         }
     },
