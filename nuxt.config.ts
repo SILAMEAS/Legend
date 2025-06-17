@@ -20,24 +20,6 @@ export default defineNuxtConfig({
   },
   app: {
     pageTransition: { name: 'page', mode: 'out-in' },
-    head: {
-      script: [
-        {
-          children: `
-            (() => {
-              try {
-                const theme = localStorage.getItem('theme');
-                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                if (theme === 'dark' || (!theme && prefersDark)) {
-                  document.documentElement.classList.add('dark');
-                }
-              } catch (e) {}
-            })();
-          `,
-          tagPosition: 'head',
-        }
-      ]
-    }
   },
   lucide:{
     namePrefix:""
