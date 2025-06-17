@@ -12,7 +12,7 @@ const colorMode = useColorMode()
 </script>
 
 <template>
-  <div>
+  <div class="fixed bottom-0 left-0">
     <DropdownMenu>
       <DropdownMenuTrigger as-child>
         <Button variant="outline" size="icon">

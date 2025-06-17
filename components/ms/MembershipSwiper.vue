@@ -34,11 +34,11 @@ onMounted(() => {
 
 <template>
   <div
-      class="w-full h-[500px] flex items-center justify-center"
+      class="w-full h-[700px] flex items-center justify-center"
   >
     <!-- Overlay with blur -->
     <MsOverlayBlur/>
-    <div class="w-full max-w-4xl mx-auto px-4">
+    <div class="w-full max-w-4xl mx-auto px-4 z-5">
       <ClientOnly>
         <swiper-container
             ref="containerRef"
