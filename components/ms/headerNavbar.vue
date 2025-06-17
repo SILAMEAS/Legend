@@ -5,7 +5,7 @@
 
 
 <template>
-  <div class="flex justify-between items-center h-[100px]">
+  <div class="flex justify-between items-center h-[100px] w-[100%]">
     <Input type="text" placeholder="Search" class="max-w-[300px]"/>
 
     <div class="flex items-center">

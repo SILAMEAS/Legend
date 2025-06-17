@@ -34,7 +34,7 @@ onMounted(() => {
 
 <template>
   <div
-      class="w-full h-[700px] flex items-center justify-center"
+      class="w-screen h-[470px]  md:h-[700px] flex items-center justify-center"
   >
     <!-- Overlay with blur -->
     <MsOverlayBlur/>

@@ -7,12 +7,8 @@ const hi = () => {
 
 <template>
   <div class="flex flex-col">
-    <!-- Swiper -->
-    <div class="relative h-[700px]">
-      <MsMembershipSwiper />
-    </div>
 
     <!-- Content -->
-    <div>Hldfjkds</div>
+    <div>HOME</div>
   </div>
 </template>

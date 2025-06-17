@@ -1,15 +1,18 @@
 <template>
-  <div class="container mx-auto h-screen">
-    <div class="flex items-center flex-col z-[10] fixed">
-      <MsHeaderNavbar/>
-      <MsNavbar/>
+    <div class="flex flex-col">
+      <div class="flex items-center flex-col z-[10] absolute w-screen -mx-auto">
+        <div class="container mx-auto">
+          <MsHeaderNavbar/>
+          <MsNavbar/>
+        </div>
+      </div>
+          <MsMembershipSwiper />
+      <!-- Swiper -->
+     <div class="container mx-auto">
+       <slot/>
+       <MsFooter/>
+     </div>
     </div>
-    <ThemeToggle />
-    <div class="z-[5] pt-20">
-      <slot/>
-    </div>
-   <MsFooter/>
-  </div>
 </template>
 <script setup lang="ts">
 </script>
