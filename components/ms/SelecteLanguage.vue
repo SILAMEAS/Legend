@@ -53,24 +53,25 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
 import { ChevronDown, Check } from 'lucide-vue-next'
+const { locales, setLocale } = useI18n()
 
 // Language options
 const languages = ref([
   {
-    code: 'EN',
+    code: 'en',
     name: 'English',
     flag: 'https://flagcdn.com/w20/gb.png'
   },
   {
-    code: 'KH',
+    code: 'kh',
     name: 'ភាសាខ្មែរ',
     flag: 'https://flagcdn.com/w20/kh.png'
   },
-  {
-    code: 'CN',
-    name: '中文',
-    flag: 'https://flagcdn.com/w20/cn.png'
-  }
+  // {
+  //   code: 'CN',
+  //   name: '中文',
+  //   flag: 'https://flagcdn.com/w20/cn.png'
+  // }
 ])
 
 // Reactive state
@@ -87,6 +88,8 @@ const selectLanguage = (language) => {
   isOpen.value = false
   // Emit event or handle language change logic here
   console.log('Language changed to:', language.code)
+  setLocale(language.code)
+
 }
 
 const closeDropdown = (event) => {
@@ -104,7 +107,3 @@ onUnmounted(() => {
   document.removeEventListener('click', closeDropdown)
 })
 </script>
-
-<style scoped>
-/* Additional custom styles if needed */
-</style>

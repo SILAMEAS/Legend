@@ -10,25 +10,22 @@
    <div class="flex gap-x-5">
     <!--     Home   -->
      <NuxtLink href="/" class="link" :class="{'active-link':isActive('/')}">
-       <House/> Home
+       <House/>  {{$t('home')}}
      </NuxtLink>
      <!--     About   -->
      <NuxtLink href="/about" class="link" :class="{'active-link':isActive('/about')}">
-       <MapPin/> About
+       <MapPin/>  {{$t('about')}}
      </NuxtLink>
      <!--     Product   -->
      <NuxtLink href="/product" class="link" :class="{'active-link':isActive('/product')}">
-       <ShoppingBag/> Product
+       <ShoppingBag/>  {{$t('product')}}
      </NuxtLink>
      <!--     Post   -->
      <NuxtLink href="/post" class="link" :class="{'active-link':isActive('/post')}">
-       <ShoppingBag/> Post
+       <ShoppingBag/>  {{$t('post')}}
      </NuxtLink>
 
    </div>
-<!--   <div class="flex items-center gap-2">-->
-<!--     <MsSelectCinema/>-->
-<!--   </div>-->
  </div>
 </template>
 

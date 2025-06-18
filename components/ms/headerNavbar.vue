@@ -12,12 +12,12 @@
       <img src="https://www.legend.com.kh/_ipx/s_117x44/legend-cinema-logo.png" alt="logo"/>
       <Button variant="outline" class="border-1 !border-gray-500">
         <Ticket />
-        Ticket
+        {{$t('ticket')}}
       </Button>
 
       <Button variant="outline" class="border-1 !border-gray-500">
         <User/>
-        Join Now
+        {{$t('join_now')}}
       </Button>
 
       <Button variant="outline" class="border-1 !border-gray-500">

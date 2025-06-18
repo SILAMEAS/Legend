@@ -52,10 +52,11 @@ export default defineNuxtConfig({
     ],
   },
   i18n: {
+    lazy:true,
     defaultLocale: 'en',
     locales: [
       { code: 'en', name: 'English', file: 'en.json' },
-      { code: 'nl', name: 'Nederlands', file: 'nl.json' }
+      { code: 'kh', name: 'Khmer', file: 'kh.json' }
     ]
   }
 })

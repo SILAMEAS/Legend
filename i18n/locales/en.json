@@ -1,3 +1,10 @@
 {
-  "welcome": "Welcome"
+  "welcome": "Welcome",
+  "home": "Home",
+  "about": "About",
+  "search": "Search",
+  "ticket": "Ticket",
+  "join_now": "Join Now",
+  "product": "Product",
+  "post": "Post"
 }
