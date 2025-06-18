@@ -54,9 +54,16 @@ export default defineNuxtConfig({
   i18n: {
     lazy:true,
     defaultLocale: 'en',
+    strategy: 'prefix', // ✅ or 'prefix_except_default'
     locales: [
       { code: 'en', name: 'English', file: 'en.json' },
       { code: 'kh', name: 'Khmer', file: 'kh.json' }
-    ]
+    ],
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'i18n_redirected',
+      alwaysRedirect: true,
+      fallbackLocale: 'en'
+    }
   }
 })
