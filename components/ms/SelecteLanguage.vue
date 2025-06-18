@@ -1,3 +1,74 @@
+
+
+<script setup>
+import { ref, onMounted, onUnmounted } from 'vue'
+import { ChevronDown, Check } from 'lucide-vue-next'
+const { setLocale} = useI18nCustom()
+const localeCookie = useCookie('i18n_redirected')
+
+
+
+// Language options
+const languages = ref([
+  {
+    code: 'en',
+    name: 'English',
+    flag: 'https://flagcdn.com/w20/gb.png'
+  },
+  {
+    code: 'kh',
+    name: 'ភាសាខ្មែរ',
+    flag: 'https://flagcdn.com/w20/kh.png'
+  },
+  // {
+  //   code: 'CN',
+  //   name: '中文',
+  //   flag: 'https://flagcdn.com/w20/cn.png'
+  // }
+]);
+
+// Reactive state
+const isOpen = ref(false)
+const selectedLanguage = ref(languages.value[0]);
+
+if (localeCookie.value) {
+  const exitLanguageLoader = languages.value.find((l) => l.code === localeCookie.value);
+  if(exitLanguageLoader) {
+   selectedLanguage.value = exitLanguageLoader;
+  }
+}
+
+// Methods
+const toggleDropdown = () => {
+  isOpen.value = !isOpen.value
+}
+
+const selectLanguage = (language) => {
+  selectedLanguage.value = language
+  isOpen.value = false
+  // Emit event or handle language change logic here
+  console.log('Language changed to:', language.code)
+  setLocale(language.code)
+
+}
+
+const closeDropdown = (event) => {
+  if (!event.target.closest('.relative')) {
+    isOpen.value = false
+  }
+}
+
+// Lifecycle hooks
+onMounted(() => {
+  document.addEventListener('click', closeDropdown)
+})
+
+onUnmounted(() => {
+  document.removeEventListener('click', closeDropdown)
+})
+</script>
+
+
 <template>
   <div class="relative inline-block text-left">
     <!-- Trigger Button -->
@@ -49,61 +120,3 @@
     </Transition>
   </div>
 </template>
-
-<script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
-import { ChevronDown, Check } from 'lucide-vue-next'
-const { locales, setLocale } = useI18n()
-
-// Language options
-const languages = ref([
-  {
-    code: 'en',
-    name: 'English',
-    flag: 'https://flagcdn.com/w20/gb.png'
-  },
-  {
-    code: 'kh',
-    name: 'ភាសាខ្មែរ',
-    flag: 'https://flagcdn.com/w20/kh.png'
-  },
-  // {
-  //   code: 'CN',
-  //   name: '中文',
-  //   flag: 'https://flagcdn.com/w20/cn.png'
-  // }
-])
-
-// Reactive state
-const isOpen = ref(false)
-const selectedLanguage = ref(languages.value[0])
-
-// Methods
-const toggleDropdown = () => {
-  isOpen.value = !isOpen.value
-}
-
-const selectLanguage = (language) => {
-  selectedLanguage.value = language
-  isOpen.value = false
-  // Emit event or handle language change logic here
-  console.log('Language changed to:', language.code)
-  setLocale(language.code)
-
-}
-
-const closeDropdown = (event) => {
-  if (!event.target.closest('.relative')) {
-    isOpen.value = false
-  }
-}
-
-// Lifecycle hooks
-onMounted(() => {
-  document.addEventListener('click', closeDropdown)
-})
-
-onUnmounted(() => {
-  document.removeEventListener('click', closeDropdown)
-})
-</script>

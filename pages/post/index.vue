@@ -21,10 +21,8 @@ watch(posts, (newPosts) => {
 </script>
 
 <template>
-  <div>
-    <p v-if="pending">Loading...</p>
-    <p v-else-if="error">Error: {{ error.message }}</p>
-    <pre v-else-if="posts">{{ JSON.stringify(posts, null, 2) }}</pre>
-    <p v-else>No data available</p>
-  </div>
+  <p v-if="pending">Loading...</p>
+  <p v-else-if="error">Error: {{ error.message }}</p>
+  <pre v-else-if="posts" v-for="i in posts">{{ i.id }}</pre>
+  <p v-else>No data available</p>
 </template>
