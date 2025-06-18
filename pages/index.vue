@@ -1,14 +1,16 @@
+<script>
 
+</script>
 <template>
- <div>
+ <div class="px-[20px] md:px-0">
 <!--   Header -->
-   <div class="flex items-center gap-x-5 font-medium text-4xl">
+   <div class="flex items-center gap-x-5 font-medium text-sm md:text-2xl lg:text-3xl">
      <p>
-       Now Showing
+       {{$t('now_showing')}}
      </p>
      |
      <p class="text-gray-600">
-       Coming soon
+       {{$t('coming_soon')}}
      </p>
    </div>
    <!--   Box List -->

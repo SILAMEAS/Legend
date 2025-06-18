@@ -74,12 +74,22 @@ onUnmounted(() => {
     <!-- Trigger Button -->
     <button
         @click="toggleDropdown"
-        class="inline-flex items-center justify-center gap-2 rounded-md bg-gray-800 px-4 py-2 text-sm font-medium text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+        class="hidden md:inline-flex items-center justify-center gap-2 rounded-md bg-gray-800 px-4 py-2 text-sm font-medium text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
         aria-expanded="true"
         aria-haspopup="true"
     >
       <img :src="selectedLanguage.flag" :alt="selectedLanguage.name" class="h-5 w-5 rounded-sm" />
       <span>{{ selectedLanguage.code }}</span>
+      <ChevronDown class="h-4 w-4" />
+    </button>
+
+    <button
+        @click="toggleDropdown"
+        class="md:hidden inline-flex items-center justify-center gap-2 rounded-md  text-sm font-medium text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+        aria-expanded="true"
+        aria-haspopup="true"
+    >
+      <img :src="selectedLanguage.flag" :alt="selectedLanguage.name" class="h-5 w-5 rounded-sm" />
       <ChevronDown class="h-4 w-4" />
     </button>
 

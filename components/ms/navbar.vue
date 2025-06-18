@@ -10,7 +10,8 @@ const isActive = (path: string) => route.fullPath === localePath(path)
 </script>
 
 <template>
-  <div class="flex container justify-between">
+<!--  PC -->
+  <div class="hidden md:flex container justify-between">
     <div class="flex gap-x-5">
       <!-- Home -->
       <NuxtLink
@@ -46,6 +47,47 @@ const isActive = (path: string) => route.fullPath === localePath(path)
           :class="{ 'active-link': isActive('/food-and-drinks') }"
       >
         <Popcorn /> {{ $t('food_and_drinks') }}
+      </NuxtLink>
+    </div>
+
+  </div>
+<!-- PHone-->
+  <div class="flex md:hidden container justify-between fixed bottom-0 bg-black/80 h-[50px] left-0 z-[999]">
+    <div class="flex w-full justify-around">
+      <!-- Home -->
+      <NuxtLink
+          :to="localePath('/')"
+          class="link"
+          :class="{ 'active-link': isActive('/') }"
+      >
+        <House />
+      </NuxtLink>
+
+      <!-- Cinemas -->
+      <NuxtLink
+          :to="localePath('/cinemas')"
+          class="link"
+          :class="{ 'active-link': isActive('/cinemas') }"
+      >
+        <MapPin />
+      </NuxtLink>
+
+      <!-- Promotion -->
+      <NuxtLink
+          :to="localePath('/promotion')"
+          class="link"
+          :class="{ 'active-link': isActive('/promotion') }"
+      >
+        <Tags />
+      </NuxtLink>
+
+      <!-- Food and Drinks -->
+      <NuxtLink
+          :to="localePath('/food-and-drinks')"
+          class="link"
+          :class="{ 'active-link': isActive('/food-and-drinks') }"
+      >
+        <Popcorn />
       </NuxtLink>
     </div>
 

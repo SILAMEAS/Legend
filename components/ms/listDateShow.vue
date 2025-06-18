@@ -90,12 +90,12 @@ const stopDrag = () => {
       @mouseleave="stopDrag"
   >
     <div
-        class="min-w-[200px] h-[100px] border-2 rounded-md"
+        class="min-w-[60px] h-[80px] md:min-w-[200px] md:h-[100px] border-2 rounded-md"
         v-for="date in listDates"
         :key="date.th"
         :class="date === selected ? 'border-red-500' : 'border-gray-500'"
     >
-      <div class="flex flex-col justify-between items-center h-full py-2 text-lg text-gray-400"
+      <div class="flex flex-col justify-between items-center h-full py-2 text-sm md:text-lg text-gray-400"
            @click="clickBox(date.id)">
         <p>{{ date.day }}</p>
         <p class="font-bold text-white"> {{ date.th }}</p>

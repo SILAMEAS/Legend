@@ -9,5 +9,7 @@
   "post": "Post",
   "cinemas": "Cinemas",
   "food_and_drinks": "F&B",
-  "offers": "Offers"
+  "offers": "Offers",
+  "now_showing":"Now Showing",
+  "coming_soon": "Coming Soon"
 }

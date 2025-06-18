@@ -1,7 +1,7 @@
 <template>
   <div class="min-h-screen bg-gray-900 p-6">
     <div class="max-w-7xl mx-auto">
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         <div
             v-for="movie in movies"
             :key="movie.id"
@@ -18,8 +18,8 @@
             <!-- Advance Ticket Banner -->
             <div
                 v-if="movie.hasAdvanceTicket"
-                class="absolute top-0 left-0 bg-red-600 text-white px-3 py-1 text-xs font-semibold transform -rotate-45 -translate-x-3 translate-y-6 shadow-lg"
-                style="width: 120px; text-align: center;"
+                class="absolute top-0 left-0 bg-red-600 text-white px-3 py-1 text-xs font-semibold transform -rotate-45 -translate-x-9 md:-translate-x-3 translate-y-6 shadow-lg w-[120px]"
+                style="text-align: center;"
             >
               Advance Ticket
             </div>
@@ -28,7 +28,7 @@
             <div class="absolute bottom-3 right-3">
               <span
                   :class="getRatingClass(movie.rating)"
-                  class="px-2 py-1 text-xs font-bold rounded"
+                  class="px-2 py-1 text-xs  font-bold rounded"
               >
                 {{ movie.rating }}
               </span>
@@ -40,7 +40,7 @@
             <div class="flex items-center justify-between">
               <span class="text-gray-400 text-sm">{{ movie.releaseDate }}</span>
             </div>
-            <h3 class="text-white font-semibold text-lg leading-tight line-clamp-2">
+            <h3 class="text-white font-semibold text-sm md:text-lg leading-tight line-clamp-2">
               {{ movie.title }}
             </h3>
           </div>
