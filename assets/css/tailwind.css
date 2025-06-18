@@ -123,10 +123,13 @@
 }
 
 .link{
-  color: white;
+  color: gray;
   display: flex;
   font-size: 0.7rem;
   align-items: center;
+}
+.link:hover{
+  color: white;
 }
 .link svg{
   margin-right: 3px;

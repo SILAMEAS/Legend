@@ -21,31 +21,31 @@ const isActive = (path: string) => route.fullPath === localePath(path)
         <House /> {{ $t('home') }}
       </NuxtLink>
 
-      <!-- About -->
+      <!-- Cinemas -->
       <NuxtLink
-          :to="localePath('/about')"
+          :to="localePath('/cinemas')"
           class="link"
-          :class="{ 'active-link': isActive('/about') }"
+          :class="{ 'active-link': isActive('/cinemas') }"
       >
-        <MapPin /> {{ $t('about') }}
+        <MapPin /> {{ $t('cinemas') }}
       </NuxtLink>
 
-      <!-- Product -->
+      <!-- Promotion -->
       <NuxtLink
-          :to="localePath('/product')"
+          :to="localePath('/promotion')"
           class="link"
-          :class="{ 'active-link': isActive('/product') }"
+          :class="{ 'active-link': isActive('/promotion') }"
       >
-        <ShoppingBag /> {{ $t('product') }}
+        <Tags /> {{ $t('offers') }}
       </NuxtLink>
 
-      <!-- Post -->
+      <!-- Food and Drinks -->
       <NuxtLink
-          :to="localePath('/post')"
+          :to="localePath('/food-and-drinks')"
           class="link"
-          :class="{ 'active-link': isActive('/post') }"
+          :class="{ 'active-link': isActive('/food-and-drinks') }"
       >
-        <ShoppingBag /> {{ $t('post') }}
+        <Popcorn /> {{ $t('food_and_drinks') }}
       </NuxtLink>
     </div>
 
