@@ -1,57 +1,102 @@
 <script setup lang="ts">
 
-const listDates=ref([
-    {
-    day:"Today",
-    th:18,
-    month:"jun"
-    },
+const listDates = ref([
   {
-    day:"Mon",
-    th:19,
-    month:"jun"
+    id: 0,
+    day: "Today",
+    th: 18,
+    month: "jun"
   },
   {
-    day:"Tue",
-    th:20,
-    month:"jun"
+    id: 1,
+    day: "Mon",
+    th: 19,
+    month: "jun"
   },
   {
-    day:"Wen",
-    th:21,
-    month:"jun"
+    id: 2,
+    day: "Tue",
+    th: 20,
+    month: "jun"
   },
   {
-    day:"Thu",
-    th:22,
-    month:"jun"
+    id: 3,
+    day: "Wen",
+    th: 21,
+    month: "jun"
   },
   {
-    day:"Fri",
-    th:23,
-    month:"jun"
+    id: 4,
+    day: "Thu",
+    th: 22,
+    month: "jun"
   },
   {
-    day:"Sat",
-    th:24,
-    month:"jun"
+    id: 5,
+    day: "Fri",
+    th: 23,
+    month: "jun"
   },
   {
-    day:"Sun",
-    th:24,
-    month:"jun"
+    id: 6,
+    day: "Sat",
+    th: 24,
+    month: "jun"
+  },
+  {
+    id: 7,
+    day: "Sun",
+    th: 24,
+    month: "jun"
   }
 ]);
 const selected = ref(listDates.value[0]);
 
-console.log(listDates.value);
-console.log(selected.value);
+const clickBox = (id: number) => {
+  selected.value = listDates.value.find(item => item.id == id)??selected.value;
+}
+
+const scrollContainer = ref<HTMLElement | null>(null)
+let isDown = false
+let startX = 0
+let scrollLeft = 0
+
+const startDrag = (e: MouseEvent) => {
+  isDown = true
+  startX = e.pageX - (scrollContainer.value?.offsetLeft || 0)
+  scrollLeft = scrollContainer.value?.scrollLeft || 0
+}
+
+const onDrag = (e: MouseEvent) => {
+  if (!isDown || !scrollContainer.value) return
+  e.preventDefault()
+  const x = e.pageX - scrollContainer.value.offsetLeft
+  const walk = x - startX
+  scrollContainer.value.scrollLeft = scrollLeft - walk
+}
+
+const stopDrag = () => {
+  isDown = false
+}
 </script>
 
 <template>
-  <div class="flex w-full  mt-[20px] gap-x-3 overflow-auto">
-    <div class="min-w-[200px] h-[100px] border-2  rounded-md " v-for="date in listDates" :class="date===selected?'border-red-500':'border-gray-500'">
-      <div class="flex flex-col justify-between items-center h-full py-2 text-lg text-gray-400">
+  <div
+      ref="scrollContainer"
+      class="flex w-full mt-[20px] gap-x-3 overflow-x-auto no-scrollbar cursor-grab active:cursor-grabbing"
+      @mousedown="startDrag"
+      @mousemove="onDrag"
+      @mouseup="stopDrag"
+      @mouseleave="stopDrag"
+  >
+    <div
+        class="min-w-[200px] h-[100px] border-2 rounded-md"
+        v-for="date in listDates"
+        :key="date.th"
+        :class="date === selected ? 'border-red-500' : 'border-gray-500'"
+    >
+      <div class="flex flex-col justify-between items-center h-full py-2 text-lg text-gray-400"
+           @click="clickBox(date.id)">
         <p>{{ date.day }}</p>
         <p class="font-bold text-white"> {{ date.th }}</p>
         <p>{{ date.month }}</p>

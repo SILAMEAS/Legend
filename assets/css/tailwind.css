@@ -149,3 +149,12 @@ html {
   background-color: black; /* Dark mode background */
   color: hsl(0 0% 100%); /* Dark mode foreground */
 }
+
+/* Hide scrollbar for all browsers */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
