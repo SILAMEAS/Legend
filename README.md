@@ -168,4 +168,9 @@ bun run preview
     npx shadcn-vue@latest add button
 
 
+### Clear 
+
+    rm -rf .nuxt node_modules
+
+
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.

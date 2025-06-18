@@ -1,14 +1,17 @@
 <script setup lang="ts">
 
-const hi = () => {
-  alert('hi')
-}
+const { locales, setLocale } = useI18n()
 </script>
 
 <template>
   <div class="flex flex-col">
 
     <!-- Content -->
-    <div>HOME</div>
+    <div>
+      <button v-for="locale in locales" @click="setLocale(locale.code)">
+        {{ locale.name }}
+      </button>
+      <h1>{{ $t('welcome') }}</h1>
+    </div>
   </div>
 </template>

@@ -12,7 +12,8 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
     'nuxt-lucide-icons',
     'shadcn-nuxt',
-    '@nuxtjs/color-mode'
+    '@nuxtjs/color-mode',
+    '@nuxtjs/i18n',
   ],
   runtimeConfig: {
     public: {
@@ -50,4 +51,11 @@ export default defineNuxtConfig({
       tailwindcss(),
     ],
   },
+  i18n: {
+    defaultLocale: 'en',
+    locales: [
+      { code: 'en', name: 'English', file: 'en.json' },
+      { code: 'nl', name: 'Nederlands', file: 'nl.json' }
+    ]
+  }
 })
