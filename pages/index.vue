@@ -1,6 +1,18 @@
 
 <template>
-  <div class="flex flex-col">
-    <h1>{{ $t('welcome') }}</h1>
-  </div>
+ <div>
+<!--   Header -->
+   <div class="flex items-center gap-x-5 font-medium text-4xl">
+     <p>
+       Now Showing
+     </p>
+     |
+     <p class="text-gray-600">
+       Coming soon
+     </p>
+   </div>
+   <!--   Box List -->
+
+  <MsListDateShow/>
+ </div>
 </template>
