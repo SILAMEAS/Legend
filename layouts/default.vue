@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-col overflow-hidden">
+    <div class="flex flex-col overflow-hidden ">
       <MsHeaderNavbar/>
       <MsNavbar/>
 <!--      Nav Bar-->
@@ -20,6 +20,8 @@
        <slot/>
        <MsFooter/>
      </div>
+
+      <ThemeToggle/>
     </div>
 </template>
 <script setup lang="ts">
