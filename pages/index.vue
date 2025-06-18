@@ -12,7 +12,8 @@
      </p>
    </div>
    <!--   Box List -->
-
   <MsListDateShow/>
+  <!--    Movie List -->
+   <MsListMovies/>
  </div>
 </template>
