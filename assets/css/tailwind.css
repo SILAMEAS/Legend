@@ -144,7 +144,13 @@ svg{
 .active-link svg {
   color: red; /* or fill/stroke depending on the icon */
 }
-
+.active-link-border {
+  border-width: 1px;
+  border-color: red;
+  padding: 5px;
+  border-radius: 2px;
+  background-color: '#9b989c';
+}
 html {
   background-color: black; /* Dark mode background */
   color: hsl(0 0% 100%); /* Dark mode foreground */
