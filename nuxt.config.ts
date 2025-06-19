@@ -74,5 +74,11 @@ export default defineNuxtConfig({
   },
   experimental: {
     componentIslands: false, // Disable Nitro islands if used
-  }
+  },
+  nitro: {
+    externals: {
+      // prevent formidable from being bundled
+      external: ['formidable'],
+    },
+  },
 })
