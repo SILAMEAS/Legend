@@ -13,7 +13,7 @@ export default defineNuxtConfig({
     'nuxt-lucide-icons',
     'shadcn-nuxt',
     '@nuxtjs/color-mode',
-    '@nuxtjs/i18n',
+    '@nuxtjs/i18n'
   ],
   runtimeConfig: {
     public: {
@@ -50,6 +50,11 @@ export default defineNuxtConfig({
     plugins: [
       tailwindcss(),
     ],
+    resolve: {
+      alias: {
+        '.prisma/client/index-browser': './node_modules/.prisma/client/index-browser.js',
+      },
+    },
   },
   i18n: {
     lazy:true,
@@ -65,5 +70,8 @@ export default defineNuxtConfig({
       alwaysRedirect: true,
       fallbackLocale: 'en'
     }
+  },
+  experimental: {
+    componentIslands: false, // Disable Nitro islands if used
   }
 })
