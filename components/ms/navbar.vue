@@ -1,12 +1,10 @@
 <script setup lang="ts">
-import { useRoute } from 'nuxt/app'
 
 // ✅ i18n composables
 const { localePath } = useI18nCustom()
 
 // ✅ active route checker (locale-aware)
-const route = useRoute()
-const isActive = (path: string) => route.fullPath === localePath(path)
+const {isActive}=useActiveRoute()
 </script>
 
 <template>

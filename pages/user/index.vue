@@ -1,14 +1,14 @@
 <script setup lang="ts">
-  const data=await $fetch('/api/user');
-  const users = data ?? [];
-
+import type {UserType} from "~/types/UserType";
+const { mutate: getUser } = useApiMutation<Array<UserType>>()
+const data = await getUser('/api/user', 'GET')
 </script>
 
 <template>
   <p>List User</p>
-  <p v-if="users.length == 0">No users found.
+  <p v-if="data.length == 0">No users found.
   </p>
-  <p v-else v-for="user in users">
+  <p v-else v-for="user in data">
     {{ user.email }} {{ user.name }}
   </p>
 
