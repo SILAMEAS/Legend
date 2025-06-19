@@ -1460,9 +1460,14 @@
   resolved "https://registry.npmjs.org/@poppinss/exception/-/exception-1.2.1.tgz"
   integrity sha512-aQypoot0HPSJa6gDPEPTntc1GT6QINrSbgRlRhadGW2WaYqUK3tK4Bw9SBMZXhmxd3GeAlZjVcODHgiu+THY7A==
 
-"@prisma/client@^6.1.0", "@prisma/client@^6.10.1":
+"@prisma/client@^6.1.0":
   version "6.10.1"
   resolved "https://registry.npmjs.org/@prisma/client/-/client-6.10.1.tgz"
+  integrity sha512-Re4pMlcUsQsUTAYMK7EJ4Bw2kg3WfZAAlr8GjORJaK4VOP6LxRQUQ1TuLnxcF42XqGkWQ36q5CQF1yVadANQ6w==
+
+"@prisma/client@^6.10.1":
+  version "6.10.1"
+  resolved "https://registry.yarnpkg.com/@prisma/client/-/client-6.10.1.tgz#f5cf8731727ea833b53524f300458d0adbb5c58f"
   integrity sha512-Re4pMlcUsQsUTAYMK7EJ4Bw2kg3WfZAAlr8GjORJaK4VOP6LxRQUQ1TuLnxcF42XqGkWQ36q5CQF1yVadANQ6w==
 
 "@prisma/config@6.10.1":
@@ -5880,7 +5885,7 @@ pretty-bytes@^6.1.1:
 
 prisma@^6.10.1:
   version "6.10.1"
-  resolved "https://registry.npmjs.org/prisma/-/prisma-6.10.1.tgz"
+  resolved "https://registry.yarnpkg.com/prisma/-/prisma-6.10.1.tgz#2864034879c492359684193720e9e4b4a0bd20c9"
   integrity sha512-khhlC/G49E4+uyA3T3H5PRBut486HD2bDqE2+rvkU0pwk9IAqGFacLFUyIx9Uw+W2eCtf6XGwsp+/strUwMNPw==
   dependencies:
     "@prisma/config" "6.10.1"

@@ -12,7 +12,8 @@
     "prisma-generate": "npx prisma generate",
     "prisma-reset": "npx prisma migrate reset",
     "prisma-pull-db": "npx prisma db pull",
-    "prisma-studio": "npx prisma studio"
+    "prisma-studio": "npx prisma studio",
+    "change-data-in-schema": "npx prisma db pull && npx prisma migrate dev --name init && npx prisma generate"
   },
   "dependencies": {
     "@heroicons/vue": "^2.2.0",
