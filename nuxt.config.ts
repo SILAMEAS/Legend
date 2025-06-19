@@ -1,10 +1,9 @@
 import tailwindcss from '@tailwindcss/vite'
 
-
 export default defineNuxtConfig({
   css: ['~/assets/css/tailwind.css'],
-  compatibilityDate: '2025-05-15',
   devtools: { enabled: true },
+
   modules: [
     '@nuxtjs/tailwindcss',
     '@nuxt/icon',
@@ -14,53 +13,43 @@ export default defineNuxtConfig({
     'shadcn-nuxt',
     '@nuxtjs/color-mode',
     '@nuxtjs/i18n',
-    "@vee-validate/nuxt"
+    '@vee-validate/nuxt'
   ],
+
   runtimeConfig: {
     public: {
       API_BASE_URL: process.env.NUXT_PUBLIC_API_BASE_URL ?? 'http://localhost:3000',
     }
   },
+
   app: {
     pageTransition: { name: 'page', mode: 'out-in' },
   },
-  lucide:{
-    namePrefix:""
+
+  lucide: {
+    namePrefix: ''
   },
+
   shadcn: {
-    /**
-     * Prefix for all the imported component
-     */
     prefix: '',
-    /**
-     * Directory that the component lives in.
-     * @default "./components/ui"
-     */
     componentDir: './components/ui'
   },
+
   tailwindcss: {
     cssPath: '~/assets/css/tailwind.css',
     configPath: 'tailwind.config.ts'
   },
+
   colorMode: {
-    preference: 'dark', // Default to dark mode
+    preference: 'dark',
     classSuffix: '',
     storageKey: 'theme'
   },
-  vite: {
-    plugins: [
-      tailwindcss(),
-    ],
-    resolve: {
-      alias: {
-        '.prisma/client/index-browser': './node_modules/.prisma/client/index-browser.js',
-      },
-    },
-  },
+
   i18n: {
-    lazy:true,
+    lazy: true,
     defaultLocale: 'en',
-    strategy: 'prefix', // ✅ or 'prefix_except_default'
+    strategy: 'prefix',
     locales: [
       { code: 'en', name: 'English', file: 'en.json' },
       { code: 'kh', name: 'Khmer', file: 'kh.json' }
@@ -72,13 +61,27 @@ export default defineNuxtConfig({
       fallbackLocale: 'en'
     }
   },
+
   experimental: {
-    componentIslands: false, // Disable Nitro islands if used
+    componentIslands: false,
   },
+
   nitro: {
     externals: {
-      // prevent formidable from being bundled
-      external: ['formidable'],
+      external: ['formidable', '@prisma/client'],
     },
   },
+
+  build: {
+    transpile: ['@prisma/client'],
+  },
+
+  vite: {
+    plugins: [tailwindcss()],
+    resolve: {
+      alias: {
+        '.prisma/client/index-browser': './node_modules/_prisma/client/index-browser.js',
+      },
+    },
+  }
 })
