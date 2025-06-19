@@ -5,7 +5,7 @@ import * as zod from 'zod';
 const validationSchema = toTypedSchema(
     zod.object({
       email: zod.string().min(1, { message: 'This is required' }).email({ message: 'Must be a valid email' }),
-      password: zod.string().min(1, { message: 'This is required' }).min(8, { message: 'Too short' }),
+      password: zod.string().min(1, { message: 'This is required' }).min(3, { message: 'Too short' }),
     })
 );
 const { handleSubmit, errors } = useForm({
@@ -13,8 +13,15 @@ const { handleSubmit, errors } = useForm({
 });
 const { value: email } = useField('email');
 const { value: password } = useField('password');
-const onSubmit = handleSubmit(values => {
+const onSubmit = handleSubmit(async (values) => {
   console.log(JSON.stringify(values, null, 2));
+  await $fetch('/api/user', {
+    method: 'POST',
+    body:{
+      email: values.email,
+      password: values.password,
+    }
+  })
 });
 </script>
 <template>

@@ -11,4 +11,31 @@ model User {
   id    Int     @id @default(autoincrement())
   email String  @unique
   name  String?
+  tickets Ticket[]
+}
+
+model Ticket{
+  id    Int     @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  userId Int
+  user User @relation(fields: [userId],references: [id])
+  movieId Int
+  movie Movie @relation(fields: [movieId],references: [id])
+  seats Seat[]
+}
+
+model Movie{
+  id    Int     @id @default(autoincrement())
+  title String  @unique
+  createdAt DateTime @default(now())
+  available Boolean @default(true)
+  tickets Ticket[]
+}
+
+model Seat{
+  id    Int     @id @default(autoincrement())
+  label String @unique
+
+  ticketId Int
+  ticket Ticket @relation(fields: [ticketId],references: [id])
 }
