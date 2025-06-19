@@ -12,7 +12,8 @@
     "prisma-generate": "npx prisma generate",
     "prisma-reset": "npx prisma migrate reset",
     "prisma-pull-db": "npx prisma db pull",
-    "prisma-studio": "npx prisma studio"
+    "prisma-studio": "npx prisma studio",
+    "clean:prisma": "rm -rf node_modules .prisma .nuxt && rm -f yarn.lock package-lock.json && yarn install && npx prisma generate"
   },
   "dependencies": {
     "@heroicons/vue": "^2.2.0",

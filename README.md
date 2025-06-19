@@ -173,4 +173,7 @@ bun run preview
     rm -rf .nuxt node_modules
 
 
+
+
+
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
