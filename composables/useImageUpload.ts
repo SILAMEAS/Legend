@@ -8,7 +8,6 @@ export const useImageUpload = () => {
                 method: 'POST',
                 body: formData,
             })
-            console.log("RES",res);
 
             return res.url
         } catch (error) {
