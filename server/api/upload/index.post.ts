@@ -1,46 +1,36 @@
-// server/api/upload.ts
-import formidable from 'formidable'
-import { readFile, writeFile } from 'fs/promises'
-import { join } from 'path'
-import { mkdirSync, existsSync } from 'fs'
-
-export const config = {
-    api: {
-        bodyParser: false,
-    },
-}
+// server/api/upload.post.ts
+import { readMultipartFormData } from 'h3';
+import { promises as fs } from 'fs';
+import { join } from 'path';
+import { tmpdir } from 'os';
 
 export default defineEventHandler(async (event) => {
-    const form = formidable({ multiples: false })
-
-    const { fields, files } = await new Promise<any>((resolve, reject) => {
-        form.parse(event.node.req, (err, fields, files) => {
-            if (err) reject(err)
-            else resolve({ fields, files })
-        })
-    })
-
-    const uploadedFile = files.file || Object.values(files)[0]
-
-    if (!uploadedFile) {
-        throw createError({
-            statusCode: 400,
-            statusMessage: 'No file uploaded',
-        })
+    // Get multipart form data
+    const formData = await readMultipartFormData(event);
+    if (!formData || !formData.length) {
+        throw createError({ statusCode: 400, message: 'No file uploaded' });
     }
 
-    const file = Array.isArray(uploadedFile) ? uploadedFile[0] : uploadedFile
+    // Determine upload directory
+    const uploadDir = process.env.NODE_ENV === 'production' ? tmpdir() : join(process.cwd(), 'public/uploads');
+    await fs.mkdir(uploadDir, { recursive: true }).catch(() => {});
 
-    // ✅ Read file content from temporary path
-    const buffer = await readFile(file.filepath)
+    // Process the file
+    const file = formData.find((item) => item.name === 'file'); // 'file' is the form field name
+    if (!file) {
+        throw createError({ statusCode: 400, message: 'File field not found' });
+    }
 
-    const fileName = `${Date.now()}-${file.originalFilename}`
-    const uploadDir = join(process.cwd(), 'public/uploads')
+    // Generate a unique filename
+    const filename = `${Date.now()}-${file.filename}`;
+    const filePath = join(uploadDir, filename);
 
-    if (!existsSync(uploadDir)) mkdirSync(uploadDir, { recursive: true })
+    // Write file to disk
+    await fs.writeFile(filePath, file.data);
 
-    const filePath = join(uploadDir, fileName)
-    await writeFile(filePath, buffer)
-
-    return { url: `/uploads/${fileName}` }
-})
+    return {
+        message: 'File uploaded successfully',
+        path: filePath,
+        url: process.env.NODE_ENV === 'production' ? null : `/uploads/${filename}`, // Serve locally
+    };
+});

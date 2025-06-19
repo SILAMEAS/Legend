@@ -18,9 +18,5 @@ definePageMeta({
 
 
 <template>
-  <div>
-    <p>All Movie</p>
-    <input type="file" @change="handleFileChange" />
-    <img v-if="image" :src='image' :alt="image" />
-  </div>
+  <MsUploadForm/>
 </template>
