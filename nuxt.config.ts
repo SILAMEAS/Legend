@@ -13,7 +13,8 @@ export default defineNuxtConfig({
     'nuxt-lucide-icons',
     'shadcn-nuxt',
     '@nuxtjs/color-mode',
-    '@nuxtjs/i18n'
+    '@nuxtjs/i18n',
+    "@vee-validate/nuxt"
   ],
   runtimeConfig: {
     public: {

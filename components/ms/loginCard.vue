@@ -21,18 +21,18 @@ const onSubmit = handleSubmit(values => {
   <div class="border-2 border-white h-[400px] w-[300px] p-5 rounded-2xl">
     <p class="text-center text-2xl">Login</p>
     <Form @submit="onSubmit" class="mt-[30px] grid grid-cols-1 gap-10">
-      <!--      Username -->
-      <div>
-        <Label for="terms">Username or email</Label>
-        <Input name="email" v-model="email" type="email"/>
-        <span class="text-red-500">{{ errors.email }}</span>
-      </div>
-      <!--      Password-->
-      <div>
-        <Label for="terms">Password</Label>
-        <Input name="password" v-model="password" type="password" />
-        <span class="text-red-500">{{ errors.password }}</span>
-      </div>
+<!--      Username -->
+     <div>
+       <Label for="terms">Username or email</Label>
+       <Input name="email" v-model="email" type="email"/>
+       <span class="text-red-500">{{ errors.email }}</span>
+     </div>
+<!--      Password-->
+     <div>
+       <Label for="terms">Password</Label>
+       <Input name="password" v-model="password" type="password" />
+       <span class="text-red-500">{{ errors.password }}</span>
+     </div>
       <Button>Submit</Button>
     </Form>
   </div>
