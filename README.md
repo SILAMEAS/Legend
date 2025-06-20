@@ -6,7 +6,7 @@ Legend is a full-stack application built with Nuxt 3 and Prisma, designed to pro
 
 ## 🌐 Live Demo
 
-> [https://legend.vercel.app](https://legend.vercel.app) (replace with actual link if deployed)
+https://legend-kh.vercel.app/en
 
 ---
 
@@ -29,4 +29,29 @@ Legend is a full-stack application built with Nuxt 3 and Prisma, designed to pro
 ---
 
 ## 📁 Folder Structure (Important Parts)
+
+---
+
+## 🧩 Features
+
+- 🌍 **SSR Support** via Nuxt 3
+- 🔐 **User Authentication**
+- 🖼️ **Image Upload** using UploadThing or Cloudinary
+- 🗂️ **REST API Integration**
+- 🛠️ **Prisma ORM** with MySQL DB
+- 🌈 **Tailwind CSS** for responsive design
+- ☁️ **Vercel Deployment**
+- 📦 **Environment Variables** for config management
+- 🔄 **Composable & Modular Codebase**
+
+---
+
+## 🧪 Setup Instructions
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/SILAMEAS/Legend.git
+cd Legend
+
 
