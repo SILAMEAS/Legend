@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@heroicons/vue": "^2.2.0",
+    "@iconify/utils": "^2.3.0",
     "@nuxt/icon": "1.13.0",
     "@pinia/nuxt": "^0.11.1",
     "@prisma/client": "^6.10.1",

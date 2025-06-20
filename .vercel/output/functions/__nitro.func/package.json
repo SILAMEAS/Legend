@@ -4,7 +4,6 @@
   "type": "module",
   "private": true,
   "dependencies": {
-    "_prisma": "0.0.0",
     "@babel/parser": "7.27.5",
     "@floating-ui/core": "1.7.1",
     "@floating-ui/dom": "1.7.1",

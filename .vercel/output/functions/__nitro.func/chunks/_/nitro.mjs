@@ -1,11 +1,10 @@
-import process from 'node:process';globalThis._importMeta_=globalThis._importMeta_||{url:"file:///_entry.js",env:process.env};import http from 'node:http';
+import http from 'node:http';
 import https from 'node:https';
 import { EventEmitter } from 'node:events';
 import { Buffer as Buffer$1 } from 'node:buffer';
 import { getIcons } from '@iconify/utils';
 import { createHash } from 'node:crypto';
 import { consola } from 'consola';
-import { createRequire } from 'node:module';
 import { promises, existsSync } from 'node:fs';
 import { resolve, dirname, join } from 'node:path';
 
@@ -4462,7 +4461,7 @@ function _expandFromEnv(value) {
 const _inlineRuntimeConfig = {
   "app": {
     "baseURL": "/",
-    "buildId": "9c415a6c-ce14-4cb8-bf92-672634c7c635",
+    "buildId": "f46d8116-d537-403a-9d44-ef26ad88d532",
     "buildAssetsDir": "/_nuxt/",
     "cdnURL": ""
   },
@@ -5057,8 +5056,6 @@ function BadRequestException(event, message) {
   setResponseStatus(event, 400 /* BAD_REQUEST */);
   return codeMessageError(message, 400 /* BAD_REQUEST */);
 }
-
-createRequire(globalThis._importMeta_.url);
 
 const collections = {
 };
