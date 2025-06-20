@@ -17,7 +17,7 @@ export default defineEventHandler(async (event) => {
                 {
                     name: body.name,
                     type: body.type,
-                    size: body.size, // ✅ add this
+                    size: body.size,
                 },
             ],
             route: 'imageUploader',

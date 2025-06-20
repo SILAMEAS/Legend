@@ -6,6 +6,7 @@
   </div>
 </template>
 
+
 <script setup lang="ts">
 import { ref } from 'vue'
 
@@ -16,29 +17,43 @@ const onFileChange = async (e: Event) => {
   const file = (e.target as HTMLInputElement).files?.[0]
   if (!file) return
 
-  const presignRes = await $fetch('/api/uploadthing-token', {
-    method: 'POST',
-    body: {
-      name: file.name,
-      type: file.type,
-      size: file.size, // ✅ required
-    },
-  })
+  try {
+    const presignRes = await $fetch('/api/uploadthing-token', {
+      method: 'POST',
+      body: {
+        name: file.name,
+        type: file.type,
+        size: file.size,
+      },
+    })
 
-  const { presignedUrls, fileUrl } = presignRes[0]
+    const uploadData = presignRes.data[0] // ✅ UploadThing gives you `.data`
 
-  const res = await fetch(presignedUrls[0], {
-    method: 'PUT',
-    body: file,
-    headers: {
-      'Content-Type': file.type,
-    },
-  })
+    const formData = new FormData()
 
-  if (res.ok) {
-    imageUrl.value = fileUrl
-  } else {
-    errorMsg.value = 'Upload failed'
+    // Append fields from UploadThing
+    Object.entries(uploadData.fields).forEach(([key, value]) => {
+      formData.append(key, value)
+    })
+
+    // Append actual file (MUST be named `file`)
+    formData.append('file', file)
+
+    // Upload to S3 using form POST
+    const res = await fetch(uploadData.url, {
+      method: 'POST',
+      body: formData,
+    })
+
+    if (res.ok) {
+      imageUrl.value = uploadData.fileUrl // ✅ Show the public file URL
+      errorMsg.value = ''
+    } else {
+      errorMsg.value = 'Upload failed'
+    }
+  } catch (err) {
+    console.error(err)
+    errorMsg.value = 'Upload error'
   }
 }
 

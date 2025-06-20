@@ -66,12 +66,10 @@ export default defineNuxtConfig({
     componentIslands: false,
   },
   nitro: {
+    preset: 'vercel',
     externals: {
       external: ['formidable', '@prisma/client'],
     },
-    plugins: [],
-    devProxy: {},
-    preset: 'node-server',
   },
 
   build: {
