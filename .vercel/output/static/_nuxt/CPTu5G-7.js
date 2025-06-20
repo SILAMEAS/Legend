@@ -1,1 +1,0 @@
-import{e as a,i as n,c as r,t as e,g as t,o as c}from"./D6CIXsZs.js";const l=a({__name:"index",setup(p){const s=useFoo(),o=n();return console.log("productId",o.params.id),(u,i)=>(c(),r("p",null," pruoduct with id "+e(t(s))+" "+e(t(o).params.id),1))}});export{l as default};
