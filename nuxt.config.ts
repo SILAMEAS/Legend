@@ -15,13 +15,13 @@ export default defineNuxtConfig({
     '@nuxtjs/i18n',
     '@vee-validate/nuxt'
   ],
-
   runtimeConfig: {
+    uploadthingSecret: process.env.UPLOADTHING_SECRET,
     public: {
+      uploadthingAppId: process.env.UPLOADTHING_APP_ID,
       API_BASE_URL: process.env.NUXT_PUBLIC_API_BASE_URL ?? 'http://localhost:3000',
     }
   },
-
   app: {
     pageTransition: { name: 'page', mode: 'out-in' },
   },
@@ -65,11 +65,13 @@ export default defineNuxtConfig({
   experimental: {
     componentIslands: false,
   },
-
   nitro: {
     externals: {
       external: ['formidable', '@prisma/client'],
     },
+    plugins: [],
+    devProxy: {},
+    preset: 'node-server',
   },
 
   build: {
