@@ -16,9 +16,7 @@ export default defineNuxtConfig({
     '@vee-validate/nuxt'
   ],
   runtimeConfig: {
-    uploadthingSecret: process.env.UPLOADTHING_SECRET,
     public: {
-      uploadthingAppId: process.env.UPLOADTHING_APP_ID,
       API_BASE_URL: process.env.NUXT_PUBLIC_API_BASE_URL ?? 'http://localhost:3000',
     }
   },
@@ -67,21 +65,8 @@ export default defineNuxtConfig({
   },
   nitro: {
     preset: 'vercel',
-    externals: {
-      external: ['formidable', '@prisma/client'],
-    },
   },
-
-  build: {
-    transpile: ['@prisma/client'],
-  },
-
   vite: {
     plugins: [tailwindcss()],
-    resolve: {
-      alias: {
-        '.prisma/client/index-browser': './node_modules/_prisma/client/index-browser.js',
-      },
-    },
   }
 })
