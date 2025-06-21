@@ -148,8 +148,10 @@ svg{
   border-width: 1px;
   border-color: red;
   padding: 5px;
-  border-radius: 2px;
-  background-color: '#9b989c';
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: start;
 }
 html {
   background-color: black; /* Dark mode background */

@@ -1,12 +1,11 @@
 <template>
-  <div class="flex w-full ">
-    <div class="w-[200px] h-screen border-r-1 border-white/30">
-      <MsAdminLeftSide/>
+  <div class="grid w-full grid-cols-12 h-screen overflow-hidden">
+    <div class="col-span-2 h-screen border-r border-white/30">
+      <MsAdminLeftSide />
     </div>
-    <div class="flex grow p-5">
-      <slot/>
+    <div class="col-span-10">
+      <!-- Wrap slot content in a grid or let the page define it -->
+      <slot />
     </div>
   </div>
 </template>
-<script setup lang="ts">
-</script>

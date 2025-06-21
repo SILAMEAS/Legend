@@ -2,40 +2,42 @@ generator client {
   provider = "prisma-client-js"
   output   = "../node_modules/_prisma/client"
 }
+
 datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
 }
 
 model User {
-  id    Int     @id @default(autoincrement())
-  email String  @unique
-  name  String?
-  tickets Ticket[]
-}
-
-model Ticket{
-  id    Int     @id @default(autoincrement())
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  name      String?
+  tickets   Ticket[]
   createdAt DateTime @default(now())
-  userId Int
-  user User @relation(fields: [userId],references: [id])
-  movieId Int
-  movie Movie @relation(fields: [movieId],references: [id])
-  seats Seat[]
 }
 
-model Movie{
-  id    Int     @id @default(autoincrement())
-  title String  @unique
+model Ticket {
+  id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
-  available Boolean @default(true)
-  tickets Ticket[]
+  userId    Int
+  user      User     @relation(fields: [userId], references: [id])
+  movieId   Int
+  movie     Movie    @relation(fields: [movieId], references: [id])
+  seats     Seat[]
 }
 
-model Seat{
-  id    Int     @id @default(autoincrement())
+model Movie {
+  id        Int      @id @default(autoincrement())
+  title     String   @unique
+  createdAt DateTime @default(now())
+  available Boolean  @default(true)
+  tickets   Ticket[]
+}
+
+model Seat {
+  id    Int    @id @default(autoincrement())
   label String @unique
 
   ticketId Int
-  ticket Ticket @relation(fields: [ticketId],references: [id])
+  ticket   Ticket @relation(fields: [ticketId], references: [id])
 }

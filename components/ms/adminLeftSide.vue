@@ -1,6 +1,5 @@
 <script setup lang="ts">
 
-import {useActiveRoute} from "~/composables/useActiveRoute";
 const {localePath}=useI18nCustom();
 
 const {isActive}=useActiveRoute();

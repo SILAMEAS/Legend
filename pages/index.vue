@@ -17,6 +17,5 @@
   <MsListDateShow/>
   <!--    Movie List -->
    <MsListMovies/>
-<!--   <MsLoginCard/>-->
  </div>
 </template>

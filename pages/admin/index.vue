@@ -2,8 +2,11 @@
 
 
 <template>
-  <div>
-    sdfsdf
+  <div class="container mx-auto overflow-auto">
+    <!--   Box List -->
+    <MsListDateShow/>
+    <!--    Movie List -->
+    <MsListMovies/>
   </div>
 </template>
 
