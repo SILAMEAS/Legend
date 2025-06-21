@@ -8,7 +8,7 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "prisma-migrate": "npx prisma migrate dev --name add Field in User",
+    "prisma-migrate": "npx prisma migrate dev --name applyImage",
     "prisma-generate": "npx prisma generate",
     "prisma-reset": "npx prisma migrate reset",
     "prisma-pull-db": "npx prisma db pull",
