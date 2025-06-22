@@ -1,15 +1,17 @@
-// middleware/auth.ts
 export default defineNuxtRouteMiddleware((to, from) => {
-    function isAuthenticated() {
-        return false; // simulate unauthenticated
+    console.log('Auth middleware triggered for:', to.path);
+
+    function isAuthenticated(): boolean {
+        return false; // simulate unauthenticated user
     }
 
-    console.log('Auth middleware running for:', to.path);
+    // Match any path that is exactly '/cinemas' or starts with '/cinemas/'
+    const protectedRouteRegex = /^\/cinemas(\/|$)/;
 
-    const protectedRoutes = [/\/cinemas(\/|$)/];
-
-    if (protectedRoutes.some(regex => regex.test(to.path)) && !isAuthenticated()) {
-        console.log('Blocked navigation to:', to.path);
-        return navigateTo('/login') // redirect user to login page
+    if (protectedRouteRegex.test(to.path) && !isAuthenticated()) {
+        console.log('Navigation blocked to:', to.path);
+        // Redirect to login page or abort navigation
+        // return abortNavigation(); // silent block
+        return navigateTo('/login'); // recommended: redirect user to login
     }
 });
