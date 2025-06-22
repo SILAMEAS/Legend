@@ -23,6 +23,8 @@ const onSubmit = handleSubmit(async (values) => {
     }
   })
 });
+
+
 </script>
 <template>
   <div class="border-2 border-white h-[400px] w-[300px] p-5 rounded-2xl">
