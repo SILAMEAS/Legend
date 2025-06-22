@@ -13,7 +13,7 @@
 
 
 <!--      Blue with swiper-->
-          <OverlayBlurNavBar/>
+          <MsOverlayBlurNavBar/>
           <MsMembershipSwiper />
       <!-- Swiper -->
      <div class="container mx-auto overflow-hidden">
@@ -25,5 +25,8 @@
     </div>
 </template>
 <script setup lang="ts">
-import OverlayBlurNavBar from "~/components/ms/overlayBlurNavBar.vue";
+
+definePageMeta({
+  middleware: 'auth'
+})
 </script>

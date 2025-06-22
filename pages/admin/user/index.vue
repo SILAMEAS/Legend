@@ -1,8 +1,7 @@
 <script setup lang="ts">
-import type { UserType } from "@type/UserType"
 import { ref } from "vue"
 
-const { mutate: getUsers, loading } = useApiMutation<Array<UserType>>()
+const { mutate: getUsers, loading } = useApiMutation<Array<any>>()
 const data = await getUsers('/api/user', 'GET')
 
 // Selected user state
