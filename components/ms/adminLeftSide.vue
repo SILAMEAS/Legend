@@ -16,9 +16,9 @@ const {isActive}=useActiveRoute();
     </NuxtLink>
 
     <NuxtLink
-        :to="localePath('/admin/movie')"
+        :to="localePath('/admin/movies')"
         class="link  flex items-center gap-x-2"
-        :class="{ 'active-link active-link-border': isActive('/admin/movie') }">
+        :class="{ 'active-link active-link-border': isActive('/admin/movies') }">
         <Clapperboard/>
         Movie
     </NuxtLink>

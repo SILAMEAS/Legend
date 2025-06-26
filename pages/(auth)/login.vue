@@ -2,6 +2,7 @@
 import { useField, useForm } from 'vee-validate';
 import { toTypedSchema } from '@vee-validate/zod';
 import * as zod from 'zod';
+const { $supabase } = useNuxtApp()
 const validationSchema = toTypedSchema(
     zod.object({
       email: zod.string().min(1, { message: 'This is required' }).email({ message: 'Must be a valid email' }),
@@ -14,17 +15,21 @@ const { handleSubmit, errors } = useForm({
 const { value: email } = useField('email');
 const { value: password } = useField('password');
 const onSubmit = handleSubmit(async (values) => {
-  console.log(JSON.stringify(values, null, 2));
-  await $fetch('/api/user', {
-    method: 'POST',
-    body:{
-      email: values.email,
-      password: values.password,
-    }
+  const { data, error } = await $supabase.auth.signInWithPassword({
+    email: email.value,
+    password: password.value
   })
+
+  if (error) {
+    alert('Signup failed: ' + error.message)
+  } else {
+    alert('Signup successful! Please check your email to confirm.')
+  }
 });
 
-
+definePageMeta({
+  layout:'auth'
+})
 </script>
 <template>
   <div class="border-2 border-white h-[400px] w-[300px] p-5 rounded-2xl">

@@ -8,7 +8,7 @@ export default defineNuxtRouteMiddleware((to, from) => {
         return false; // simulate unauthenticated
     }
 
-    const protectedRoutes = ['ds'];
+    const protectedRoutes = ['setting'];
 
     const protectedRegexList = protectedRoutes.map(key => regexUrl(key));
 

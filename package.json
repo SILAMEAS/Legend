@@ -20,6 +20,7 @@
     "@iconify/utils": "^2.3.0",
     "@nuxt/icon": "1.13.0",
     "@pinia/nuxt": "^0.11.1",
+    "@supabase/supabase-js": "^2.50.2",
     "@tailwindcss/vite": "^4.1.10",
     "@tanstack/vue-table": "^8.21.3",
     "@vee-validate/nuxt": "^4.15.1",
